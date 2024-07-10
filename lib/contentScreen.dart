@@ -24,7 +24,7 @@ class ContentScreen extends AnimatedWidget {
   double completeScreenHeight;
   double safeAreaHeight;
   String imagePath;
-  Animation animation;
+  Animation<double> animation;
   double imageHeight;
   double imageWidth;
   double imageX;
@@ -32,19 +32,19 @@ class ContentScreen extends AnimatedWidget {
   Meditation meditation;
 
   ContentScreen({
-    this.heightParentTop,
-    this.width,
-    this.height,
-    this.imageTargetHeight,
-    this.completeScreenHeight,
-    this.safeAreaHeight,
-    this.imagePath,
-    this.animation,
-    this.imageHeight,
-    this.imageWidth,
-    this.imageX,
-    this.imageY,
-    this.meditation,
+    required this.heightParentTop,
+    required this.width,
+    required this.height,
+    required this.imageTargetHeight,
+    required this.completeScreenHeight,
+    required this.safeAreaHeight,
+    required this.imagePath,
+    required this.animation,
+    required this.imageHeight,
+    required this.imageWidth,
+    required this.imageX,
+    required this.imageY,
+    required this.meditation,
   }) : super(listenable: animation);
 
   @override

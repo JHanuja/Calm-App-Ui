@@ -17,24 +17,24 @@ class RecentlyPlayed extends StatefulWidget {
   List<Meditation> meditations;
   Color color;
   dynamic func;
-  Animation animation;
+  Animation<double> animation;
   double safeAreaHeight;
   double heightParentTop;
   double heightParentBottom;
   double imageTargetHeight;
 
   RecentlyPlayed(
-      {this.width,
-      this.height,
-      this.meditations,
-      this.color,
-      this.func,
-      this.safeAreaHeight,
-      this.heightParentTop,
-      this.heightParentBottom,
-      this.completeScreenHeight,
-      this.animation,
-      this.imageTargetHeight})
+      {required this.width,
+      required this.height,
+      required this.meditations,
+      required this.color,
+      required this.func,
+      required this.safeAreaHeight,
+      required this.heightParentTop,
+      required this.heightParentBottom,
+      required this.completeScreenHeight,
+      required this.animation,
+      required this.imageTargetHeight})
       : super(key: recentlyPlayedKey);
 
   @override
@@ -43,12 +43,12 @@ class RecentlyPlayed extends StatefulWidget {
 
 class RecentlyPlayedState extends State<RecentlyPlayed> {
   bool content = false;
-  String imagePath;
-  double imageWidth;
-  double imageHeight;
-  double imageX;
-  double imageY;
-  Meditation meditation;
+  late String imagePath;
+  late double imageWidth;
+  late double imageHeight;
+  late double imageX;
+  late double imageY;
+  late Meditation meditation;
 
   invertPage() {
     setState(() {
@@ -61,7 +61,7 @@ class RecentlyPlayedState extends State<RecentlyPlayed> {
     x.changeStackPosition(false);
 
     RenderBox renderBox =
-        recentlyImagesKeyList[keyIndex].currentContext.findRenderObject();
+        recentlyImagesKeyList[keyIndex].currentContext!.findRenderObject() as RenderBox;
 
     setState(() {
       meditation = recentlyPlayed[keyIndex];
@@ -181,10 +181,10 @@ class MeditationCardVertical extends StatefulWidget {
   dynamic func;
 
   MeditationCardVertical({
-    this.height,
-    this.index,
-    this.width,
-    this.meditation,
+    required this.height,
+    required this.index,
+    required this.width,
+    required this.meditation,
     this.func,
   });
 
@@ -300,7 +300,7 @@ class ListItemImageVertical extends StatelessWidget {
   String imagePath;
   int index;
 
-  ListItemImageVertical({this.width, this.height, this.imagePath, this.index})
+  ListItemImageVertical({required this.width, required this.height, required this.imagePath, required this.index})
       : super(key: recentlyImagesKeyList[index]);
 
   @override

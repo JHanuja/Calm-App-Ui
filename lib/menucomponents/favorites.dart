@@ -15,7 +15,7 @@ class Favorites extends StatefulWidget {
   List<Meditation> meditations;
   double height;
   double width;
-  Animation animation;
+  Animation<double> animation;
   double safeAreaHeight;
   double heightParentMiddle;
   double heightParentTop;
@@ -25,17 +25,17 @@ class Favorites extends StatefulWidget {
   double completeScreenHeight;
 
   Favorites(
-      {this.meditations,
-      this.height,
-      this.width,
-      this.animation,
-      this.safeAreaHeight,
-      this.heightParentMiddle,
-      this.color,
-      this.heightParentTop,
+      {required this.meditations,
+      required this.height,
+      required this.width,
+      required this.animation,
+      required this.safeAreaHeight,
+      required this.heightParentMiddle,
+      required this.color,
+      required this.heightParentTop,
       this.func,
-      this.imageTargetHeight,
-      this.completeScreenHeight})
+      required this.imageTargetHeight,
+      required this.completeScreenHeight})
       : super(key: favoritesKey);
 
   @override
@@ -44,12 +44,12 @@ class Favorites extends StatefulWidget {
 
 class FavoritesState extends State<Favorites> {
   bool content = false;
-  String imagePath;
-  double imageWidth;
-  double imageHeight;
-  double imageX;
-  double imageY;
-  Meditation meditation;
+  late String imagePath;
+  late double imageWidth;
+  late double imageHeight;
+  late double imageX;
+  late double imageY;
+  late Meditation meditation;
 
   invertPage() {
     setState(() {
@@ -68,7 +68,7 @@ class FavoritesState extends State<Favorites> {
     x.changeStackPosition(true);
 
     RenderBox renderBox =
-        favoritesImagesKeyList[keyIndex].currentContext.findRenderObject();
+        favoritesImagesKeyList[keyIndex].currentContext!.findRenderObject() as RenderBox;
 
     setState(() {
       meditation = favorites[keyIndex];
@@ -219,7 +219,7 @@ class MeditationCardHorizontal extends StatefulWidget {
   dynamic func;
 
   MeditationCardHorizontal(
-      {this.height, this.width, this.meditation, this.index, this.func});
+      {required this.height, required this.width, required this.meditation, required this.index, this.func});
 
   @override
   _MeditationCardHorizontalState createState() =>
@@ -341,7 +341,7 @@ class ListItemImageHorizontal extends StatelessWidget {
   String imagePath;
   int index;
 
-  ListItemImageHorizontal({this.width, this.height, this.imagePath, this.index})
+  ListItemImageHorizontal({required this.width, required this.height, required this.imagePath, required this.index})
       : super(key: favoritesImagesKeyList[index]);
 
   @override

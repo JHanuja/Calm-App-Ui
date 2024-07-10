@@ -10,11 +10,11 @@ class ScreenValues {
   double value32;
 
   ScreenValues(
-      {this.completeScreenHeight,
-      this.width,
-      this.safeAreaHeight,
-      this.value8,
-      this.value12,
-      this.value16,
-      this.value32});
+      {required this.completeScreenHeight,
+      required this.width,
+      required this.safeAreaHeight,
+      required this.value8,
+      required this.value12,
+      required this.value16,
+      required this.value32});
 }

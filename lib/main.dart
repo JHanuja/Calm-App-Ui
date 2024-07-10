@@ -46,8 +46,8 @@ class ScreenProperties extends InheritedWidget {
     return false;
   }
 
-  ScreenProperties({this.screenValues, Widget child}) : super(child: child);
+  ScreenProperties({required this.screenValues, required Widget child}) : super(child: child);
 
   static ScreenProperties of(BuildContext context) =>
-      context.dependOnInheritedWidgetOfExactType(aspect: ScreenProperties);
+      context.dependOnInheritedWidgetOfExactType(aspect: ScreenProperties)!;
 }

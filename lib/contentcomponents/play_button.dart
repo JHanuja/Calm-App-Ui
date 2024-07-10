@@ -5,16 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutterdesignchallange_calmapp/main.dart';
 
 class PlayButton extends StatefulWidget {
-  Animation animation;
+  Animation<double> animation;
 
-  PlayButton({this.animation});
+  PlayButton({required this.animation});
 
   @override
   _PlayButtonState createState() => _PlayButtonState();
 }
 
 class _PlayButtonState extends State<PlayButton> {
-  CurvedAnimation curve;
+  late CurvedAnimation curve;
 
   @override
   void initState() {
@@ -30,7 +30,7 @@ class _PlayButtonState extends State<PlayButton> {
           lerpDouble(
               0.0,
               ScreenProperties.of(context).screenValues.safeAreaHeight * 0.75,
-              curve.value),
+              curve.value)!,
       child: Padding(
         padding:
             EdgeInsets.all(ScreenProperties.of(context).screenValues.value8),

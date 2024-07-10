@@ -10,7 +10,7 @@ GlobalKey playmeditationkey = GlobalKey(debugLabel: 'playmeditation');
 class PlayMeditation extends StatefulWidget {
   Meditation meditation;
 
-  PlayMeditation({this.meditation}) : super(key: playmeditationkey);
+  PlayMeditation({required this.meditation}) : super(key: playmeditationkey);
 
   @override
   PlayMeditationState createState() => PlayMeditationState();
@@ -18,8 +18,8 @@ class PlayMeditation extends StatefulWidget {
 
 class PlayMeditationState extends State<PlayMeditation>
     with TickerProviderStateMixin {
-  AnimationController _fadeInController;
-  AnimationController _playedSconds;
+  late AnimationController _fadeInController;
+  late AnimationController _playedSconds;
 
   @override
   void initState() {
@@ -50,7 +50,7 @@ class PlayMeditationState extends State<PlayMeditation>
           lerpDouble(
               0.0,
               ScreenProperties.of(context).screenValues.safeAreaHeight * 0.12,
-              _fadeInController.value),
+              _fadeInController.value)!,
       child: Container(
         width: ScreenProperties.of(context).screenValues.width,
         height: ScreenProperties.of(context).screenValues.safeAreaHeight * 0.12,

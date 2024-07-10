@@ -11,11 +11,11 @@ class TitleContent extends AnimatedWidget {
   final ScreenElements menuContent;
   final AnimationController animationController;
   TitleContent({
-    this.width,
-    this.height,
-    this.menuContent,
-    this.animationController,
-    this.safeAreaHeight,
+    required this.width,
+    required this.height,
+    required this.menuContent,
+    required this.animationController,
+    required this.safeAreaHeight,
   }) : super(listenable: animationController);
 
   @override
@@ -66,13 +66,13 @@ class MountainsTitle extends StatefulWidget {
   double safeAreaHeight;
 
   MountainsTitle(
-      {this.animationController,
-      this.height,
-      this.width,
-      this.icon,
-      this.name,
-      this.safeAreaHeight,
-      this.salutation});
+      {required this.animationController,
+      required this.height,
+      required this.width,
+      required this.icon,
+      required this.name,
+      required this.safeAreaHeight,
+      required this.salutation});
 
   @override
   _MountainsTitleState createState() => _MountainsTitleState();
@@ -80,8 +80,8 @@ class MountainsTitle extends StatefulWidget {
 
 class _MountainsTitleState extends State<MountainsTitle>
     with TickerProviderStateMixin {
-  CurvedAnimation _fadeOutAnimation;
-  AnimationController _fadeInAnimation;
+  late CurvedAnimation _fadeOutAnimation;
+  late AnimationController _fadeInAnimation;
 
   bool fadeIn = false;
 
@@ -167,10 +167,10 @@ class _MountainsTitleState extends State<MountainsTitle>
           top: widget.safeAreaHeight * 0.03,
           left: !fadeIn
               ? widget.width * 0.05 -
-                  lerpDouble(0.0, widget.width * 2, _fadeOutAnimation.value)
+                  lerpDouble(0.0, widget.width * 2, _fadeOutAnimation.value)!
               : (ScreenProperties.of(context).screenValues.width * 2 * -1) +
                   lerpDouble(0.0, widget.width * 2 + widget.width * 0.05,
-                      _fadeInAnimation.value),
+                      _fadeInAnimation.value)!,
           child: Padding(
             padding: EdgeInsets.all(
                 ScreenProperties.of(context).screenValues.value8),
@@ -181,10 +181,10 @@ class _MountainsTitleState extends State<MountainsTitle>
           bottom: widget.height * 0.22,
           left: !fadeIn
               ? widget.width * 0.05 -
-                  lerpDouble(0.0, widget.width * 2, _fadeOutAnimation.value)
+                  lerpDouble(0.0, widget.width * 2, _fadeOutAnimation.value)!
               : (ScreenProperties.of(context).screenValues.width * 2 * -1) +
                   lerpDouble(0.0, widget.width * 2 + widget.width * 0.05,
-                      _fadeInAnimation.value),
+                      _fadeInAnimation.value)!,
           child: Padding(
             padding: EdgeInsets.all(
                 ScreenProperties.of(context).screenValues.value8),
@@ -202,10 +202,10 @@ class _MountainsTitleState extends State<MountainsTitle>
           bottom: 0.0,
           left: !fadeIn
               ? widget.width * 0.05 -
-                  lerpDouble(0.0, widget.width * 2, _fadeOutAnimation.value)
+                  lerpDouble(0.0, widget.width * 2, _fadeOutAnimation.value)!
               : (ScreenProperties.of(context).screenValues.width * 2 * -1) +
                   lerpDouble(0.0, widget.width * 2 + widget.width * 0.05,
-                      _fadeInAnimation.value),
+                      _fadeInAnimation.value)!,
           child: Padding(
             padding: EdgeInsets.all(
                 ScreenProperties.of(context).screenValues.value8),
@@ -222,7 +222,7 @@ class _MountainsTitleState extends State<MountainsTitle>
         Positioned(
           top: widget.safeAreaHeight * 0.03,
           right: widget.width * 0.05 -
-              lerpDouble(0.0, widget.width * 2, _fadeOutAnimation.value),
+              lerpDouble(0.0, widget.width * 2, _fadeOutAnimation.value)!,
           child: Padding(
             padding: EdgeInsets.all(
                 ScreenProperties.of(context).screenValues.value8),
@@ -329,10 +329,10 @@ class FeelingsQuestion extends StatefulWidget {
   double width;
   String question;
   FeelingsQuestion({
-    this.animationController,
-    this.height,
-    this.width,
-    this.question,
+    required this.animationController,
+    required this.height,
+    required this.width,
+    required this.question,
   });
 
   @override
@@ -341,8 +341,8 @@ class FeelingsQuestion extends StatefulWidget {
 
 class _FeelingsQuestionState extends State<FeelingsQuestion>
     with TickerProviderStateMixin {
-  CurvedAnimation _fadeOutAnimation;
-  AnimationController _fadeInAnimation;
+  late CurvedAnimation _fadeOutAnimation;
+  late AnimationController _fadeInAnimation;
   bool fadeIn = false;
 
   @override
@@ -416,10 +416,10 @@ class _FeelingsQuestionState extends State<FeelingsQuestion>
               bottom: widget.height * 0.1,
               left: !fadeIn
                   ? widget.width * 0.05 -
-                      lerpDouble(0.0, widget.width * 2, _fadeOutAnimation.value)
+                      lerpDouble(0.0, widget.width * 2, _fadeOutAnimation.value)!
                   : (ScreenProperties.of(context).screenValues.width * 2 * -1) +
                       lerpDouble(0.0, widget.width * 2 + widget.width * 0.05,
-                          _fadeInAnimation.value),
+                          _fadeInAnimation.value)!,
               child: Container(
                 width: widget.width * 0.8,
                 height: widget.height * 0.8,

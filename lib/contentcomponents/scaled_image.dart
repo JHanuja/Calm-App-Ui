@@ -5,7 +5,7 @@ import 'package:flutterdesignchallange_calmapp/main.dart';
 import 'package:flutterdesignchallange_calmapp/models.dart';
 
 class ScaledImage extends StatefulWidget {
-  Animation animation;
+  Animation<double> animation;
   String imagePath;
   double heightParentTop;
   double imageHeight;
@@ -18,25 +18,25 @@ class ScaledImage extends StatefulWidget {
   double imageTargetHeight;
   Meditation meditation;
   ScaledImage(
-      {this.animation,
-      this.imagePath,
-      this.heightParentTop,
-      this.imageHeight,
-      this.imageX,
-      this.imageY,
-      this.safeAreaHeight,
-      this.completeScreenHeight,
-      this.completeScreenWidth,
-      this.imageWidth,
-      this.imageTargetHeight,
-      this.meditation});
+      {required this.animation,
+      required this.imagePath,
+      required this.heightParentTop,
+      required this.imageHeight,
+      required this.imageX,
+      required this.imageY,
+      required this.safeAreaHeight,
+      required this.completeScreenHeight,
+      required this.completeScreenWidth,
+      required this.imageWidth,
+      required this.imageTargetHeight,
+      required this.meditation});
 
   @override
   _ScaledImageState createState() => _ScaledImageState();
 }
 
 class _ScaledImageState extends State<ScaledImage> {
-  CurvedAnimation _easeOutCubic;
+  late CurvedAnimation _easeOutCubic;
 
   @override
   void initState() {
@@ -58,12 +58,12 @@ class _ScaledImageState extends State<ScaledImage> {
                   -1 *
                       (widget.imageY -
                           (widget.completeScreenHeight -
-                              widget.safeAreaHeight)),
+                              widget.safeAreaHeight)!),
                   0.0,
-                  _easeOutCubic.value),
+                  _easeOutCubic.value)!,
       left: widget.animation.value == 0
           ? widget.imageX
-          : -1 * (lerpDouble(widget.imageX * -1, 0.0, _easeOutCubic.value)),
+          : -1 * (lerpDouble(widget.imageX * -1, 0.0, _easeOutCubic.value)!),
       child: Stack(
         children: [
           Opacity(
@@ -96,7 +96,7 @@ class _ScaledImageState extends State<ScaledImage> {
                       widget.completeScreenWidth, _easeOutCubic.value),
                   child: Align(
                     alignment: FractionalOffset(0.0,
-                        -1 * (lerpDouble(-1.0, -0.6, _easeOutCubic.value))),
+                        -1 * (lerpDouble(-1.0, -0.6, _easeOutCubic.value)!)),
                     child: Stack(
                       children: [
                         Transform(

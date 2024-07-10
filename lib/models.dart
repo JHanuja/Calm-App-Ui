@@ -8,12 +8,12 @@ class ScreenElements {
   List<Meditation> recentlyPlayed;
   List<Meditation> favorites;
   ScreenElements(
-      {this.salutataion,
-      this.name,
-      this.icon,
-      this.feelingsQuestion,
-      this.recentlyPlayed,
-      this.favorites});
+      {required this.salutataion,
+      required this.name,
+      required this.icon,
+      required this.feelingsQuestion,
+      required this.recentlyPlayed,
+      required this.favorites});
 }
 
 class Meditation {
@@ -25,13 +25,13 @@ class Meditation {
   int currentSong;
   List<PlayListItem> playlist;
   Meditation(
-      {this.name,
-      this.contentType,
-      this.imagePath,
-      this.duration,
-      this.currentSong,
-      this.text,
-      this.playlist});
+      {required this.name,
+      required this.contentType,
+      required this.imagePath,
+      required this.duration,
+      required this.currentSong,
+      required this.text,
+      required this.playlist});
 }
 
 class PlayListItem {
@@ -44,13 +44,13 @@ class PlayListItem {
   double secondsPlayed;
 
   PlayListItem(
-      {this.name,
-      this.description,
-      this.secondsPlayed,
-      this.minutes,
-      this.seconds,
-      this.secondsTotal,
-      this.imagePath});
+      {required this.name,
+      required this.description,
+      required this.secondsPlayed,
+      required this.minutes,
+      required this.seconds,
+      required this.secondsTotal,
+      required this.imagePath});
 }
 
 final List<PlayListItem> meditationPlaylist = [

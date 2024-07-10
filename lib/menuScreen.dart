@@ -16,17 +16,17 @@ GlobalKey menuScreenKey = GlobalKey(debugLabel: 'menuScreen');
 
 class MenuScreen extends StatefulWidget {
   ScreenElements menuContent;
-  MenuScreen({this.menuContent}) : super(key: menuScreenKey);
+  MenuScreen({required this.menuContent}) : super(key: menuScreenKey);
 
   @override
   MenuScreenState createState() => MenuScreenState();
 }
 
 class MenuScreenState extends State<MenuScreen> with TickerProviderStateMixin {
-  ScreenController screenController;
+  late ScreenController screenController;
   bool stackPosition = false;
   bool menuOnTop = true;
-  AnimationController zeroSeconds;
+  late AnimationController zeroSeconds;
 
 
   void reverseAnimation() {

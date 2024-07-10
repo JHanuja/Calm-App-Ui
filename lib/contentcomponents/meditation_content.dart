@@ -12,7 +12,7 @@ class MeditationContent extends StatefulWidget {
   final Animation animation;
   final Meditation meditation;
 
-  MeditationContent({this.animation, this.meditation})
+  MeditationContent({required this.animation, required this.meditation})
       : super(key: meditationContentKey);
 
   @override
@@ -21,10 +21,10 @@ class MeditationContent extends StatefulWidget {
 
 class MeditationContentState extends State<MeditationContent>
     with TickerProviderStateMixin {
-  AnimationController _meditationTextController;
-  AnimationController _meditationListController;
+  late AnimationController _meditationTextController;
+  late AnimationController _meditationListController;
   bool started = false;
-  PlayMeditationState _playmeditationState;
+  late PlayMeditationState _playmeditationState;
 
   Offset scrollOfsset = Offset(0.0, 0.0);
 
@@ -103,13 +103,13 @@ class MeditationContentState extends State<MeditationContent>
 }
 
 class MeditationList extends AnimatedWidget {
-  final Animation animation;
+  final Animation<double> animation;
   final Meditation meditation;
   Offset scrollOffset;
 
   Offset currentTranslation = Offset(0.0, 0.0);
 
-  MeditationList({this.animation, this.meditation, this.scrollOffset})
+  MeditationList({required this.animation, required this.meditation, required this.scrollOffset})
       : super(listenable: animation);
 
   @override
@@ -158,17 +158,17 @@ class MeditationList extends AnimatedWidget {
 class PlayListItemCard extends StatefulWidget {
   int index;
   PlayListItem item;
-  Animation animation;
+  Animation<double> animation;
 
-  PlayListItemCard({this.index, this.item, this.animation});
+  PlayListItemCard({required this.index, required this.item, required this.animation});
 
   @override
   _PlayListItemCardState createState() => _PlayListItemCardState();
 }
 
 class _PlayListItemCardState extends State<PlayListItemCard> {
-  CurvedAnimation _curve;
-  Animation<double> _animation;
+  late CurvedAnimation _curve;
+  late Animation<double> _animation;
 
   @override
   void initState() {
@@ -191,7 +191,7 @@ class _PlayListItemCardState extends State<PlayListItemCard> {
     return Positioned(
       top: widget.index * height * 1.25 +
           (widget.index * height * 1.75 -
-              lerpDouble(0.0, widget.index * height * 1.75, _curve.value)),
+              lerpDouble(0.0, widget.index * height * 1.75, _curve.value)!),
       child: _curve.value > 0.0
           ? Transform(
               transform:
@@ -294,7 +294,7 @@ class MeditationText extends AnimatedWidget {
   final Animation animation;
   final Meditation meditation;
 
-  MeditationText({this.animation, this.meditation})
+  MeditationText({required this.animation, required this.meditation})
       : super(listenable: animation);
 
   @override
@@ -302,7 +302,7 @@ class MeditationText extends AnimatedWidget {
     return Positioned(
       left: -1 * ScreenProperties.of(context).screenValues.width +
           lerpDouble(0, ScreenProperties.of(context).screenValues.width,
-              animation.value),
+              animation.value)!,
       child: Container(
         width: ScreenProperties.of(context).screenValues.width,
         height: ScreenProperties.of(context).screenValues.safeAreaHeight * 0.2,

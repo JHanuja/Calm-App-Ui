@@ -9,7 +9,7 @@ class ScreenController extends ChangeNotifier {
 
   final TickerProvider vsync;
 
-  ScreenController({this.vsync})
+  ScreenController({required this.vsync})
       : controller = AnimationController(vsync: vsync) {
     controller
       ..duration = const Duration(milliseconds: 800)

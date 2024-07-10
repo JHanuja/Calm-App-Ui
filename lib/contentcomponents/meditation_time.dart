@@ -5,17 +5,17 @@ import 'package:flutterdesignchallange_calmapp/main.dart';
 import 'package:flutterdesignchallange_calmapp/models.dart';
 
 class MeditationTime extends StatefulWidget {
-  Animation animation;
+  Animation<double> animation;
   Meditation meditation;
 
-  MeditationTime({this.animation, this.meditation});
+  MeditationTime({required this.animation, required this.meditation});
 
   @override
   _MeditationTimeState createState() => _MeditationTimeState();
 }
 
 class _MeditationTimeState extends State<MeditationTime> {
-  CurvedAnimation curve;
+  late CurvedAnimation curve;
 
   @override
   void initState() {
@@ -31,7 +31,7 @@ class _MeditationTimeState extends State<MeditationTime> {
           lerpDouble(
               0.0,
               ScreenProperties.of(context).screenValues.safeAreaHeight * 0.7,
-              curve.value),
+              curve.value)!,
       left: lerpDouble(0.0,
           ScreenProperties.of(context).screenValues.width * 0.75, curve.value),
       child: Text(

@@ -15,7 +15,7 @@ class TopIcons extends AnimatedWidget {
     x.reverseMeditationTextAndListAnimation();
   }
 
-  TopIcons({this.animation, this.width, this.safeAreaHeight})
+  TopIcons({required this.animation, required this.width, required this.safeAreaHeight})
       : super(listenable: animation);
 
   @override
@@ -29,7 +29,7 @@ class TopIcons extends AnimatedWidget {
                   0.0,
                   ScreenProperties.of(context).screenValues.width * 2 +
                       ScreenProperties.of(context).screenValues.width * 0.05,
-                  animation.value),
+                  animation.value)!,
           child: Padding(
             padding: EdgeInsets.all(
                 ScreenProperties.of(context).screenValues.value8),
@@ -46,7 +46,7 @@ class TopIcons extends AnimatedWidget {
                     0.0,
                     ScreenProperties.of(context).screenValues.width * 2 +
                         ScreenProperties.of(context).screenValues.width * 0.05,
-                    animation.value),
+                    animation.value)!,
             child: Padding(
               padding: EdgeInsets.all(
                   ScreenProperties.of(context).screenValues.value8),
